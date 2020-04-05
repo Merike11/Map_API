@@ -16,7 +16,9 @@ try {
 }
 ?>
 
-<h2>Markerid</h2>
+<?php require "templates/header.php"; ?>
+
+<h2>Markerid:</h2>
 
 <table>
     <thead>
@@ -46,3 +48,5 @@ try {
 </table>
   
 <a href="index.php">Tagasi algusesse</a>
+
+<?php require "templates/footer.php"; ?>

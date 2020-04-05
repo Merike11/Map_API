@@ -34,6 +34,8 @@ try {
   }
 ?>
 
+<?php require "templates/header.php";?>
+
 <h2>Kustuta markerid</h2>
 
 <table>
@@ -64,3 +66,4 @@ try {
 </table>
   
 <a href="index.php">Tagasi algusesse</a>
+<?php require "templates/footer.php";?>

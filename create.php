@@ -27,6 +27,7 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
+<?php require "templates/header.php";?>
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
   <?php echo escape($_POST['name']); ?> successfully added.
@@ -49,4 +50,6 @@ if(isset($_POST['submit'])){
 </form>
 
 <a href="index.php">Tagasi algusesse</a>
+
+<?php require "templates/footer.php";?>
 
