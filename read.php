@@ -43,13 +43,13 @@ if (isset($_POST['submit'])) {
       <tbody>
   <?php foreach ($result as $row) { ?>
       <tr>
-<td><?php echo escape($row["id"]); ?></td>
-<td><?php echo escape($row["name"]); ?></td>
-<td><?php echo escape($row["latitude"]); ?></td>
-<td><?php echo escape($row["longitude"]); ?></td>
-<td><?php echo escape($row["description"]); ?></td>
-<td><?php echo escape($row["added"]); ?></td>
-<td><?php echo escape($row["edited"]); ?> </td>
+        <td><?php echo escape($row["id"]); ?></td>
+        <td><?php echo escape($row["name"]); ?></td>
+        <td><?php echo escape($row["latitude"]); ?></td>
+        <td><?php echo escape($row["longitude"]); ?></td>
+        <td><?php echo escape($row["description"]); ?></td>
+        <td><?php echo escape($row["added"]); ?></td>
+        <td><?php echo escape($row["edited"]); ?> </td>
       </tr>
     <?php } ?>
       </tbody>
