@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     
     $statement = $connection->prepare($sql);
-    $statement->bindParam(':name', $location, PDO::PARAM_STR);
+    $statement->bindParam(':name', $name, PDO::PARAM_STR);
     $statement->execute();
     
     $result = $statement->fetchAll();
