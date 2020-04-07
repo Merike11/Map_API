@@ -15,7 +15,6 @@ if (isset($_POST['submit'])) {
       "added"       => $_POST['added'],
       "edited"      => $_POST['edited']
     ];
-
     $sql = "UPDATE markers.markers
             SET id = :id,
               name = :name,
@@ -32,7 +31,6 @@ if (isset($_POST['submit'])) {
       echo $sql . "<br>" . $error->getMessage();
   }
 }
-
 if (isset($_GET['id'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
@@ -51,6 +49,7 @@ if (isset($_GET['id'])) {
     exit;
 }
 ?>
+
 <?php require "templates/header.php";?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
