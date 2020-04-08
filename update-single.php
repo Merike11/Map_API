@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
       "name"        => $_POST['name'],
       "latitude"    => $_POST['latitude'],
       "longitude"   => $_POST['longitude'],
-      "desription"  => $_POST['description'],
+      "description"  => $_POST['description'],
       "added"       => $_POST['added'],
       "edited"      => $_POST['edited']
     ];

@@ -1,29 +1,60 @@
 
 <?php include "templates/header.php";?>
+<div class="formarea ml-3" >
+        <ul>
+            <li>
+                <a href="create.php"><strong>Lisa</strong></a> - Lisa marker
+            </li>
+            <li>
+                <a href="read.php"><strong>Leia</strong></a> - Leia marker
+            </li>
+            <li>
+                <a href="update.php"><strong>Muuda</strong></a> - Muuda marker
+            </li>
+            <li>
+                <a href="delete.php"><strong>Kustuta</strong></a> - Kustuta marker
+            </li>
+        </ul>
+    <div class="row">
+        <div class="col-2">
+            <form method="post">
+                <input name="name" class="form-control" placeholder="Add title"><br>
+                <input id="lat" name="latitude" class="form-control" placeholder="Add latitude"><br>
+                <input id="lng" name="longitude" class="form-control" placeholder="Add longitude"><br>
+                
+                <input type="submit" name="submit" class="btn btn-primary" value="Add marker">
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+if(isset($_POST['submit'])){
+    require "./config.php";
+    require "./common.php";
 
-    <ul>
-        <li>
-            <a href="create.php"><strong>Lisa</strong></a> - Lisa marker
-        </li>
-        <li>
-            <a href="read.php"><strong>Leia</strong></a> - Leia marker
-        </li>
-        <li>
-            <a href="update.php"><strong>Muuda</strong></a> - Muuda marker
-        </li>
-        <li>
-            <a href="delete.php"><strong>Kustuta</strong></a> - Kustuta marker
-        </li>
-    </ul>
+    try{
+        $connection = new PDO($dsn, $username, $password, $options);
+        
+        $new_marker =array(
+            "name" => $_POST['name'],
+            "latitude" => $_POST['latitude'],
+            "longitude" => $_POST['longitude'],
+            "description" => $_POST['description']
+        );
+        $sql = sprintf(
+    "INSERT INTO %s (%s) values (%s)",
+    "markers.markers",
+    implode(", ", array_keys($new_marker)),
+    ":" . implode(", :", array_keys($new_marker))
+        );
+        $statement = $connection->prepare($sql);
+        $statement->execute($new_marker);
 
-<form method="post">
-    <input name="title" placeholder="Add title"><br>
-    <input id="lat" name="latitude" placeholder="Add latitude"><br>
-    <input id="lng" name="longitude" placeholder="Add longitude"><br>
-    <textarea name="description"></textarea><br>
-    <button name="action" value="add">Add marker</button>
-</form>
-
+        } catch(PDOException $error) {
+        echo $sql ."<br>" . $error->getMessage();
+    }
+}
+?>
 <hr>
 
 <div id="map"></div>
