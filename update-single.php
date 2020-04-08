@@ -55,16 +55,15 @@ if (isset($_GET['id'])) {
 <?php if (isset($_POST['submit']) && $statement) : ?>
   <?php echo escape($_POST['name']); ?> successfully updated.
 <?php endif; ?>
-
 <h2>Muuda marker:</h2>
 
-<form method="post">
+  <form method="post">
     <?php foreach ($marker as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+    <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
     <?php endforeach; ?>
-    <input type="submit" name="submit" value="Submit">
-</form>
+    <input type="submit" name="submit" value="Kinnita">
+  </form>
 
 <a href="index.php">Tagasi algusesse</a>
 

@@ -18,11 +18,11 @@
     <div class="row">
         <div class="col-2">
             <form method="post">
-                <input name="name" class="form-control" placeholder="Add title"><br>
-                <input id="lat" name="latitude" class="form-control" placeholder="Add latitude"><br>
-                <input id="lng" name="longitude" class="form-control" placeholder="Add longitude"><br>
-                
-                <input type="submit" name="submit" class="btn btn-primary" value="Add marker">
+                <input name="name" class="form-control" placeholder="Nimetus"><br>
+                <input id="lat" name="latitude" class="form-control" placeholder="Laiuskraad"><br>
+                <input id="lng" name="longitude" class="form-control" placeholder="Pikkuskraad"><br>
+                <textarea name="description" class="form-control" placeholder="Kirjeldus"></textarea><br>
+                <input type="submit" name="submit" class="btn btn-primary" value="Lisa marker">
             </form>
         </div>
     </div>
