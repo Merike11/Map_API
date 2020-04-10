@@ -51,20 +51,21 @@ if (isset($_GET['id'])) {
 ?>
 
 <?php require "templates/header.php";?>
+<div class="formarea ml-3" >
+  <?php if (isset($_POST['submit']) && $statement) : ?>
+    <?php echo escape($_POST['name']); ?> successfully updated.
+  <?php endif; ?>
+  <h2>Muuda marker:</h2>
 
-<?php if (isset($_POST['submit']) && $statement) : ?>
-  <?php echo escape($_POST['name']); ?> successfully updated.
-<?php endif; ?>
-<h2>Muuda marker:</h2>
-
-  <form method="post">
-    <?php foreach ($marker as $key => $value) : ?>
-    <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?>
-    <input type="submit" name="submit" value="Kinnita">
-  </form>
-
+    <form method="post">
+      <?php foreach ($marker as $key => $value) : ?>
+      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+      <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+      <?php endforeach; ?>
+      <input type="submit" name="submit" value="Kinnita">
+    </form>
+</div>    
+  <br>
 <a href="index.php">Tagasi algusesse</a>
 
 <?php require "templates/footer"; ?>
